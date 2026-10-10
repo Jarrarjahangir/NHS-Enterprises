@@ -36,7 +36,12 @@ export default function ProcessSteps() {
 
         <div className="process-grid">
           {steps.map((s, idx) => (
-            <div key={idx} className="process-card">
+            <div
+              key={idx}
+              className="process-card"
+              data-reveal="fade-up"
+              style={{ "--stagger-i": idx }}
+            >
               <div className="process-step-header">
                 <span className="process-step-num">{s.num}</span>
                 <span className="process-step-dot" />

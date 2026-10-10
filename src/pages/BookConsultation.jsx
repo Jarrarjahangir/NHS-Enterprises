@@ -91,7 +91,7 @@ export default function BookConsultation() {
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container" style={{ maxWidth: "900px" }}>
+        <div className="container" data-reveal="fade-up" style={{ maxWidth: "900px" }}>
           <Breadcrumbs items={[{ label: "Home", path: "/" }, { label: "Book a Consultation" }]} />
           <span className="eyebrow">EXECUTIVE ENGAGEMENT</span>
           <h1 className="page-hero-title">
@@ -111,7 +111,7 @@ export default function BookConsultation() {
 
       {/* Form Section */}
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container" style={{ maxWidth: "860px" }}>
+        <div className="container" data-reveal="fade-up" style={{ maxWidth: "860px" }}>
           {submitted ? (
             <div className="form-feedback-success" style={{ padding: "3rem 2rem", textAlign: "center" }}>
               <div style={{ color: "#2E7D32", display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>

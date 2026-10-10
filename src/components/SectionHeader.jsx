@@ -12,7 +12,11 @@ export default function SectionHeader({
   align = "space-between"
 }) {
   return (
-    <div className="section-header-row" style={align === "center" ? { flexDirection: "column", alignItems: "center", textAlign: "center" } : {}}>
+    <div
+      className="section-header-row"
+      data-reveal="fade-up"
+      style={align === "center" ? { flexDirection: "column", alignItems: "center", textAlign: "center" } : {}}
+    >
       <div className="section-header-content" style={align === "center" ? { maxWidth: "800px" } : {}}>
         {eyebrow && (
           <span className={`eyebrow ${dark ? "eyebrow-dark" : ""}`}>

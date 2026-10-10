@@ -34,7 +34,7 @@ export default function Contact() {
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs items={[{ label: "Home", path: "/" }, { label: "Contact Us" }]} />
           <span className="eyebrow">GET IN TOUCH</span>
           <h1 className="page-hero-title">
@@ -51,7 +51,7 @@ export default function Contact() {
         <div className="container">
           <div className="about-split-grid">
             {/* Contact Details & Office Representation */}
-            <div>
+            <div data-reveal="fade-up">
               <span className="eyebrow">HEADQUARTERS</span>
               <h2 style={{ marginBottom: "1.5rem" }}>Dubai Practice Office</h2>
 
@@ -155,7 +155,7 @@ export default function Contact() {
             </div>
 
             {/* Inquiry Form */}
-            <div style={{ backgroundColor: "var(--color-bg)", padding: "2.5rem", border: "1px solid var(--color-border)" }}>
+            <div data-reveal="fade-up" style={{ backgroundColor: "var(--color-bg)", padding: "2.5rem", border: "1px solid var(--color-border)" }}>
               <span className="eyebrow">DIRECT INQUIRY</span>
               <h3 style={{ fontSize: "1.45rem", marginBottom: "1.5rem" }}>Send a Direct Message</h3>
 

@@ -14,7 +14,7 @@ export default function ConsultationCTA() {
       <div className="consultation-cta-overlay" />
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
-        <div className="consultation-cta-content">
+        <div className="consultation-cta-content" data-reveal="fade-up">
           <div className="consultation-cta-copy">
             <span className="eyebrow eyebrow-dark">LET'S WORK TOGETHER</span>
             <h2 id="cta-heading" className="consultation-cta-title">

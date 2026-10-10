@@ -5,15 +5,24 @@ import SearchModal from "./SearchModal";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 15);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        const progress = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
+        setScrollProgress(progress);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -30,6 +39,13 @@ export default function Header() {
       </a>
 
       <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
+        {/* Luxury Gold Scroll Progress Indicator */}
+        <div
+          className="header-scroll-progress-bar"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
+
         {/* Top Utility Bar */}
         <div className="top-utility-bar">
           <div className="container utility-inner">

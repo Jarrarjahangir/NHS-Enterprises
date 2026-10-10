@@ -25,7 +25,7 @@ export default function InsightsIndex() {
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs items={[{ label: "Home", path: "/" }, { label: "Insights" }]} />
           <span className="eyebrow">RESEARCH & THOUGHT LEADERSHIP</span>
           <h1 className="page-hero-title">
@@ -55,8 +55,9 @@ export default function InsightsIndex() {
                   fontWeight: 500,
                   backgroundColor: activeCategory === cat ? "var(--color-dark)" : "var(--color-bg)",
                   color: activeCategory === cat ? "#FFFFFF" : "var(--color-text-primary)",
-                  border: "1px solid var(--color-border)",
-                  transition: "all var(--transition-fast)"
+                  border: activeCategory === cat ? "1px solid var(--color-dark)" : "1px solid var(--color-border)",
+                  transition: "all var(--transition-fast)",
+                  cursor: "pointer"
                 }}
               >
                 {cat}
@@ -70,8 +71,8 @@ export default function InsightsIndex() {
       <section className="section" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="container">
           <div className="insights-grid">
-            {filteredArticles.map((article) => (
-              <InsightCard key={article.slug} article={article} />
+            {filteredArticles.map((article, idx) => (
+              <InsightCard key={article.slug} article={article} index={idx} />
             ))}
           </div>
 

@@ -18,7 +18,7 @@ export default function IndustryDetail() {
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs
             items={[
               { label: "Home", path: "/" },
@@ -34,7 +34,7 @@ export default function IndustryDetail() {
 
       {/* Hero Visual & Challenges Split */}
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="about-split-grid">
             <div className="about-photo-wrapper">
               <img
@@ -71,7 +71,7 @@ export default function IndustryDetail() {
 
       {/* NHS Tailored Solutions */}
       <section className="section border-top" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="section-header-row">
             <div className="section-header-content">
               <span className="eyebrow">HOW NHS ASSISTS</span>
@@ -112,7 +112,7 @@ export default function IndustryDetail() {
 
       {/* Recommended Core Services */}
       <section className="section border-top" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="section-header-row">
             <div className="section-header-content">
               <span className="eyebrow">RECOMMENDED PRACTICES</span>

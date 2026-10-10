@@ -26,7 +26,7 @@ export default function ServiceDetail() {
     <main id="main-content">
       {/* 1. Hero & Breadcrumbs */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs
             items={[
               { label: "Home", path: "/" },
@@ -49,7 +49,7 @@ export default function ServiceDetail() {
 
       {/* 2. Challenge & NHS Solution (Split) */}
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="about-split-grid">
             {/* The Business Challenge */}
             <div style={{ backgroundColor: "var(--color-bg)", padding: "2.5rem", border: "1px solid var(--color-border)" }}>
@@ -80,7 +80,7 @@ export default function ServiceDetail() {
 
       {/* 3. Detailed Capabilities */}
       <section className="section border-top" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="section-header-row">
             <div className="section-header-content">
               <span className="eyebrow">OUR CAPABILITIES</span>
@@ -122,7 +122,7 @@ export default function ServiceDetail() {
 
       {/* 4. Strategic Benefits */}
       <section className="section border-top" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="section-header-row">
             <div className="section-header-content">
               <span className="eyebrow">MEASURABLE VALUE</span>
@@ -144,7 +144,7 @@ export default function ServiceDetail() {
 
       {/* 5. Process Execution */}
       <section className="section border-top" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <div className="section-header-row">
             <div className="section-header-content">
               <span className="eyebrow">ENGAGEMENT LIFECYCLE</span>

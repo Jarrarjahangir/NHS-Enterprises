@@ -37,7 +37,12 @@ export default function WhyNHS() {
 
         <div className="why-nhs-grid">
           {pillars.map((pillar, idx) => (
-            <div key={idx} className="why-nhs-card">
+            <div
+              key={idx}
+              className="why-nhs-card"
+              data-reveal="fade-up"
+              style={{ "--stagger-i": idx }}
+            >
               <div className="why-icon-box" aria-hidden="true">
                 {pillar.icon}
               </div>

@@ -1,17 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Shield, Compass, Landmark } from "lucide-react";
+import { ArrowRight, Shield, CheckCircle2, Compass, Landmark } from "lucide-react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import WhyNHS from "../components/WhyNHS";
 import ProcessSteps from "../components/ProcessSteps";
 import ConsultationCTA from "../components/ConsultationCTA";
 
 export default function About() {
+  const principles = [
+    {
+      icon: <Shield size={22} strokeWidth={1.5} />,
+      title: "Confidentiality & Discretion",
+      desc: "Your financial affairs and strategic objectives are protected with enterprise-grade data security protocols and strict institutional non-disclosure agreements."
+    },
+    {
+      icon: <CheckCircle2 size={22} strokeWidth={1.5} />,
+      title: "Technical Precision",
+      desc: "We adhere uncompromisingly to IFRS and UAE Federal Tax Authority statutes. Every calculation is documented, referenced, and audit-ready."
+    },
+    {
+      icon: <Compass size={22} strokeWidth={1.5} />,
+      title: "Commercial Pragmatism",
+      desc: "Compliance should facilitate business velocity, not paralyze it. We translate intricate tax codes into straightforward, commercially actionable steps."
+    },
+    {
+      icon: <Landmark size={22} strokeWidth={1.5} />,
+      title: "UAE Market Rootedness",
+      desc: "From mainland DED requirements to specialized free zone authorities like DMCC, DIFC, and JAFZA, our team possesses ground-level familiarity."
+    }
+  ];
+
   return (
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs items={[{ label: "Home", path: "/" }, { label: "About Us" }]} />
           <span className="eyebrow">ABOUT NHS ENTERPRISES</span>
           <h1 className="page-hero-title">
@@ -27,7 +50,7 @@ export default function About() {
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="container">
           <div className="about-split-grid">
-            <div>
+            <div data-reveal="fade-up">
               <span className="eyebrow">OUR ORIGIN & PURPOSE</span>
               <h2 style={{ marginBottom: "1.5rem" }}>
                 Built on Precision, Designed for Partnership
@@ -53,21 +76,22 @@ export default function About() {
               </div>
             </div>
 
-            <div className="about-photo-wrapper">
+            <div className="about-photo-wrapper" data-reveal="fade-up">
               <img
                 src="/images/about-office.webp"
                 alt="NHS Enterprises conference room in Dubai"
                 loading="lazy"
               />
+              <div className="about-photo-accent-frame" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Principles Grid */}
+      {/* Guiding Principles */}
       <section className="section border-top" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="container">
-          <div className="section-header-row">
+          <div className="section-header-row" data-reveal="fade-up">
             <div className="section-header-content">
               <span className="eyebrow">OUR COMMITMENT</span>
               <h2 className="section-header-title">The Principles That Guide Every Mandate</h2>
@@ -80,45 +104,20 @@ export default function About() {
           </div>
 
           <div className="why-nhs-grid">
-            <div className="why-nhs-card">
-              <div className="why-icon-box">
-                <Shield size={22} strokeWidth={1.5} />
+            {principles.map((p, idx) => (
+              <div
+                key={idx}
+                className="why-nhs-card"
+                data-reveal="fade-up"
+                style={{ "--stagger-i": idx }}
+              >
+                <div className="why-icon-box">
+                  {p.icon}
+                </div>
+                <h3 className="why-card-title">{p.title}</h3>
+                <p className="why-card-text">{p.desc}</p>
               </div>
-              <h3 className="why-card-title">Confidentiality & Discretion</h3>
-              <p className="why-card-text">
-                Your financial affairs and strategic objectives are protected with enterprise-grade data security protocols and strict institutional non-disclosure agreements.
-              </p>
-            </div>
-
-            <div className="why-nhs-card">
-              <div className="why-icon-box">
-                <CheckCircle2 size={22} strokeWidth={1.5} />
-              </div>
-              <h3 className="why-card-title">Technical Precision</h3>
-              <p className="why-card-text">
-                We adhere uncompromisingly to IFRS and UAE Federal Tax Authority statutes. Every calculation is documented, referenced, and audit-ready.
-              </p>
-            </div>
-
-            <div className="why-nhs-card">
-              <div className="why-icon-box">
-                <Compass size={22} strokeWidth={1.5} />
-              </div>
-              <h3 className="why-card-title">Commercial Pragmatism</h3>
-              <p className="why-card-text">
-                Compliance should facilitate business velocity, not paralyze it. We translate intricate tax codes into straightforward, commercially actionable steps.
-              </p>
-            </div>
-
-            <div className="why-nhs-card">
-              <div className="why-icon-box">
-                <Landmark size={22} strokeWidth={1.5} />
-              </div>
-              <h3 className="why-card-title">UAE Market Rootedness</h3>
-              <p className="why-card-text">
-                From mainland DED requirements to specialized free zone authorities like DMCC, DIFC, and JAFZA, our team possesses ground-level familiarity.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

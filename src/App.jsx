@@ -1,8 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { useScrollReveal } from "./hooks/useScrollReveal";
+
+function ScrollRevealManager() {
+  const location = useLocation();
+  useScrollReveal("[data-reveal]", location.pathname);
+  return null;
+}
 
 // Pages
 import Home from "./pages/Home";
@@ -26,6 +33,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ScrollRevealManager />
       <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Header />
         <div style={{ flexGrow: 1 }}>

@@ -22,7 +22,7 @@ export default function InsightDetail() {
     <main id="main-content">
       {/* Article Header */}
       <section className="page-hero">
-        <div className="container" style={{ maxWidth: "900px" }}>
+        <div className="container" data-reveal="fade-up" style={{ maxWidth: "900px" }}>
           <Breadcrumbs
             items={[
               { label: "Home", path: "/" },
@@ -60,7 +60,7 @@ export default function InsightDetail() {
       </section>
 
       {/* Featured Media */}
-      <div className="container" style={{ maxWidth: "900px", marginTop: "2rem" }}>
+      <div className="container" data-reveal="fade-up" style={{ maxWidth: "900px", marginTop: "2rem" }}>
         <div style={{ overflow: "hidden", aspectRatio: "16 / 9", border: "1px solid var(--color-border)" }}>
           <img
             src={article.featuredImage}
@@ -72,7 +72,7 @@ export default function InsightDetail() {
 
       {/* Article Content */}
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
-        <div className="container" style={{ maxWidth: "800px" }}>
+        <div className="container" data-reveal="fade-up" style={{ maxWidth: "800px" }}>
           <div style={{ fontSize: "1.1rem", lineHeight: 1.8, color: "var(--color-text-primary)" }}>
             {article.content.map((block, idx) => {
               if (block.type === "heading") {

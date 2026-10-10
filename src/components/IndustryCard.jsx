@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-export default function IndustryCard({ industry }) {
+export default function IndustryCard({ industry, index = 0 }) {
   return (
     <Link
       to={`/industries/${industry.slug}`}
       className="industry-card"
+      data-reveal="fade-up"
+      style={{ "--stagger-i": index }}
       aria-label={`Explore our financial services for ${industry.name}`}
     >
       <img

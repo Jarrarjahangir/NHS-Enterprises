@@ -30,11 +30,16 @@ export default function MetricsBar() {
   ];
 
   return (
-    <section className="metrics-bar" aria-label="Key Performance Indicators">
+    <section className="metrics-bar" aria-label="Key Performance Indicators" data-reveal="fade-up">
       <div className="container">
         <div className="metrics-grid">
           {metrics.map((m, idx) => (
-            <div key={idx} className="metric-item">
+            <div
+              key={idx}
+              className="metric-item"
+              data-reveal="fade-up"
+              style={{ "--stagger-i": idx }}
+            >
               <div className="metric-icon-wrap" aria-hidden="true">
                 {m.icon}
               </div>

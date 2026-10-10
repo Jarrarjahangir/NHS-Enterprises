@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 
-export default function InsightCard({ article }) {
+export default function InsightCard({ article, index = 0 }) {
   return (
     <Link
       to={`/insights/${article.slug}`}
       className="insight-card"
+      data-reveal="fade-up"
+      style={{ "--stagger-i": index }}
       aria-label={`Read article: ${article.title}`}
     >
       <div className="insight-card-media">

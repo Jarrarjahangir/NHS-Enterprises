@@ -19,27 +19,37 @@ export default function Home() {
   const featuredIndustries = industriesData.slice(0, 6);
   const featuredInsights = insightsData.slice(0, 3);
 
+  const stats = [
+    { number: "500+", label: "Businesses Supported*" },
+    { number: "98%", label: "Client Retention*" },
+    { number: "15+", label: "Years of Combined Experience*" },
+    { number: "10+", label: "Industries Served in UAE" }
+  ];
+
   return (
     <main id="main-content">
-      {/* 8. HERO SECTION */}
+      {/* 8. CINEMATIC HERO SECTION */}
       <section className="hero-section" aria-label="Introduction">
         <div className="container">
           <div className="hero-grid">
             {/* Left Content */}
             <div className="hero-content">
-              <span className="eyebrow">
-                ACCOUNTING & TAX CONSULTANCY IN THE UAE
-              </span>
+              <div className="hero-eyebrow-wrap">
+                <span className="eyebrow hero-eyebrow-reveal">
+                  <span className="eyebrow-dot" />
+                  ACCOUNTING & TAX CONSULTANCY IN THE UAE
+                </span>
+              </div>
 
-              <h1 className="hero-title">
+              <h1 className="hero-title hero-title-reveal">
                 Financial Expertise for a Stronger Tomorrow
               </h1>
 
-              <p className="hero-description text-lead">
+              <p className="hero-description text-lead hero-description-reveal">
                 NHS Enterprises provides professional accounting, tax, audit and financial advisory services to help businesses stay compliant, make informed decisions and achieve sustainable growth in the UAE and beyond.
               </p>
 
-              <div className="hero-actions">
+              <div className="hero-actions hero-actions-reveal">
                 <Link to="/book-consultation" className="btn btn-primary" id="hero-cta-btn">
                   <span>Book a Consultation</span>
                   <ArrowRight size={14} className="icon-arrow" />
@@ -50,8 +60,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Editorial Visual */}
-            <div className="hero-visual">
+            {/* Right Editorial Visual with Layered Motion */}
+            <div className="hero-visual hero-visual-reveal">
               <div className="hero-image-wrapper">
                 <img
                   src="/images/hero-boardroom.webp"
@@ -59,15 +69,27 @@ export default function Home() {
                   className="hero-image"
                   fetchPriority="high"
                 />
+                <div className="hero-image-vignette" />
               </div>
 
               {/* Editorial Floating Badge */}
               <div className="hero-floating-card">
-                <div className="hero-floating-index">01 — Strategic Advisory</div>
+                <div className="hero-floating-status">
+                  <span className="floating-pulse-dot" />
+                  <span className="hero-floating-index">01 — Strategic Advisory</span>
+                </div>
                 <div className="hero-floating-text">
                   Strategic financial solutions for ambitious businesses.
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Luxury Scroll Cue Indicator */}
+          <div className="hero-scroll-cue" aria-hidden="true">
+            <span className="hero-scroll-cue-text">SCROLL TO EXPLORE</span>
+            <div className="hero-scroll-cue-track">
+              <div className="hero-scroll-cue-thumb" />
             </div>
           </div>
         </div>
@@ -88,8 +110,8 @@ export default function Home() {
           />
 
           <div className="services-grid">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {featuredServices.map((service, idx) => (
+              <ServiceCard key={service.id} service={service} index={idx} />
             ))}
           </div>
         </div>
@@ -100,7 +122,7 @@ export default function Home() {
         <div className="container">
           <div className="about-split-grid">
             {/* Left Copy */}
-            <div>
+            <div data-reveal="fade-up">
               <span className="eyebrow">ABOUT NHS ENTERPRISES</span>
               <h2 style={{ marginBottom: "1.5rem" }}>
                 A Trusted Advisory Partner in Dubai
@@ -126,35 +148,31 @@ export default function Home() {
             </div>
 
             {/* Right Media & Vertical Stats */}
-            <div className="about-split-media">
+            <div className="about-split-media" data-reveal="fade-up">
               <div className="about-photo-wrapper">
                 <img
                   src="/images/about-office.webp"
                   alt="NHS Enterprises executive office in Dubai"
                   loading="lazy"
                 />
+                <div className="about-photo-accent-frame" />
               </div>
 
               <div className="about-vertical-stats">
-                <div className="vertical-stat-item">
-                  <div className="vertical-stat-number">500+</div>
-                  <div className="vertical-stat-label">Businesses Supported*</div>
-                </div>
-
-                <div className="vertical-stat-item">
-                  <div className="vertical-stat-number">98%</div>
-                  <div className="vertical-stat-label">Client Retention*</div>
-                </div>
-
-                <div className="vertical-stat-item">
-                  <div className="vertical-stat-number">15+</div>
-                  <div className="vertical-stat-label">Years of Combined Experience*</div>
-                </div>
-
-                <div className="vertical-stat-item" style={{ borderBottom: "none" }}>
-                  <div className="vertical-stat-number">10+</div>
-                  <div className="vertical-stat-label">Industries Served in UAE</div>
-                </div>
+                {stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="vertical-stat-item"
+                    data-reveal="fade-up"
+                    style={{
+                      "--stagger-i": idx,
+                      borderBottom: idx === stats.length - 1 ? "none" : undefined
+                    }}
+                  >
+                    <div className="vertical-stat-number">{stat.number}</div>
+                    <div className="vertical-stat-label">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -173,8 +191,8 @@ export default function Home() {
           />
 
           <div className="industries-grid">
-            {featuredIndustries.map((ind) => (
-              <IndustryCard key={ind.slug} industry={ind} />
+            {featuredIndustries.map((ind, idx) => (
+              <IndustryCard key={ind.slug} industry={ind} index={idx} />
             ))}
           </div>
         </div>
@@ -201,8 +219,8 @@ export default function Home() {
           />
 
           <div className="insights-grid">
-            {featuredInsights.map((article) => (
-              <InsightCard key={article.slug} article={article} />
+            {featuredInsights.map((article, idx) => (
+              <InsightCard key={article.slug} article={article} index={idx} />
             ))}
           </div>
         </div>

@@ -2,9 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-export default function ServiceCard({ service }) {
+export default function ServiceCard({ service, index = 0 }) {
   return (
-    <Link to={`/services/${service.slug}`} className="service-card" aria-label={`View details for ${service.title}`}>
+    <Link
+      to={`/services/${service.slug}`}
+      className="service-card"
+      data-reveal="fade-up"
+      style={{ "--stagger-i": index }}
+      aria-label={`View details for ${service.title}`}
+    >
       <div className="service-card-media">
         <img
           src={service.heroImage}

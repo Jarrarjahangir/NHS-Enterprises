@@ -9,7 +9,7 @@ export default function IndustriesIndex() {
     <main id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
-        <div className="container">
+        <div className="container" data-reveal="fade-up">
           <Breadcrumbs items={[{ label: "Home", path: "/" }, { label: "Industries" }]} />
           <span className="eyebrow">SECTOR EXPERTISE</span>
           <h1 className="page-hero-title">
@@ -25,8 +25,8 @@ export default function IndustriesIndex() {
       <section className="section" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="container">
           <div className="industries-grid">
-            {industriesData.map((ind) => (
-              <IndustryCard key={ind.slug} industry={ind} />
+            {industriesData.map((ind, idx) => (
+              <IndustryCard key={ind.slug} industry={ind} index={idx} />
             ))}
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function IndustriesIndex() {
       {/* Cross-Sector Advisory Note */}
       <section className="section border-top" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="container">
-          <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+          <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }} data-reveal="fade-up">
             <span className="eyebrow">SPECIALIZED MANDATES</span>
             <h2 style={{ marginBottom: "1rem" }}>Operating in an Unlisted Sector?</h2>
             <p className="text-lead" style={{ marginBottom: "2rem" }}>
