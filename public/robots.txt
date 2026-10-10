@@ -1,0 +1,14 @@
+# robots.txt for NHS Financial Advisory (nhsfinancialadvisory.com)
+User-agent: *
+Allow: /
+Disallow: /client-portal
+Disallow: /api/
+Disallow: /admin/
+Disallow: /search?*
+Disallow: /*?*
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Sitemap declaration
+Sitemap: https://nhsfinancialadvisory.com/sitemap.xml
